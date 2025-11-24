@@ -1,0 +1,49 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  @apply bg-slate-950 text-slate-100 overflow-hidden;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  @apply bg-slate-950;
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-slate-700 rounded-full;
+}
+
+/* PRINT STYLES (For Exporting PDF) */
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  .bg-white, .bg-white * {
+    visibility: visible;
+  }
+  .bg-white {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    margin: 0;
+    padding: 20px;
+    box-shadow: none;
+    border: none;
+    height: auto;
+    overflow: visible;
+  }
+  /* Hide UI elements in print */
+  .lucide, button, .h-16 { 
+    display: none !important; 
+  }
+  textarea {
+    border: none !important;
+    resize: none; 
+    overflow: visible; 
+  }
+}
